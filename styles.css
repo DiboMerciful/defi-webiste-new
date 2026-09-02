@@ -37,12 +37,16 @@ a {
   text-decoration: none;
 }
 .site-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
   display: flex;
   align-items: center;
   justify-content: space-between;
   max-width: 1200px;
   margin: auto;
   padding: 22px 32px;
+  background: var(--cream);
 }
 .brand {
   display: grid;
