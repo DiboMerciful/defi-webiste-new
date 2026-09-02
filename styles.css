@@ -405,6 +405,14 @@ footer h3 {
 footer p {
   color: #b8c5bb;
 }
+.copyright {
+  grid-column: 1 / -1;
+  margin: 18px 0 0;
+  padding-top: 18px;
+  border-top: 1px solid #2e765c;
+  color: #b8c5bb;
+  font-size: 12px;
+}
 footer a:not(.brand) {
   display: block;
   margin-bottom: 6px;
@@ -602,7 +610,9 @@ footer a:not(.brand):hover {
 }
 .intake-date {
   color: var(--forest);
-  font: 700 24px/1.2 "Playfair Display", serif;
+  font:
+    700 24px/1.2 "Playfair Display",
+    serif;
 }
 .intake-time {
   margin-top: 8px;
@@ -666,6 +676,13 @@ footer a:not(.brand):hover {
   color: var(--forest);
   font-weight: 700;
   margin: 10px 0;
+}
+.contact-list a.button-primary {
+  display: inline-block;
+  color: #fff;
+}
+.contact-list a.button-primary:hover {
+  color: var(--ink);
 }
 @media (max-width: 720px) {
   .map-section,
