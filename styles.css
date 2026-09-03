@@ -109,9 +109,9 @@ a {
   position: relative;
   overflow: hidden;
   min-height: 540px;
-  max-width: 1200px;
-  margin: auto;
-  padding: 68px 32px 60px;
+  width: 100%;
+  margin: 0;
+  padding: 68px max(32px, calc((100% - 1136px) / 2)) 60px;
   display: grid;
   grid-template-columns: 1.3fr 0.7fr;
   gap: 85px;
