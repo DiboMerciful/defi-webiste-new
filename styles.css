@@ -106,6 +106,8 @@ a {
   padding: 6px 9px;
 }
 .hero {
+  position: relative;
+  overflow: hidden;
   min-height: 540px;
   max-width: 1200px;
   margin: auto;
@@ -114,6 +116,27 @@ a {
   grid-template-columns: 1.3fr 0.7fr;
   gap: 85px;
   align-items: center;
+  background: url("assets/images/germany-hero.jpg") center / cover;
+  color: #fff;
+}
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(10, 25, 20, 0.7);
+}
+.hero > * {
+  position: relative;
+  z-index: 1;
+}
+.hero .eyebrow {
+  color: #f3d17d;
+}
+.hero-text {
+  color: #d2f4da;
+}
+.hero .text-link {
+  color: #fff;
 }
 .eyebrow {
   color: var(--forest);
@@ -134,7 +157,8 @@ a {
 .hero-text {
   font-size: 18px;
   max-width: 560px;
-  color: #46524b;
+  color: #e6eee8;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.35);
 }
 .hero-actions {
   display: flex;
@@ -216,6 +240,120 @@ a {
 .trust-strip span {
   font-size: 13px;
   font-weight: 600;
+}
+.pathway-carousel-section {
+  max-width: 1200px;
+  margin: auto;
+  padding: 85px 32px 20px;
+}
+.carousel-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 70px;
+}
+.carousel-heading h2 {
+  max-width: 690px;
+  margin-bottom: 0;
+  font-size: clamp(34px, 4vw, 52px);
+}
+.pathway-carousel {
+  position: relative;
+  overflow: hidden;
+  margin-top: 42px;
+  background: var(--forest);
+}
+.carousel-track {
+  display: grid;
+}
+.carousel-slide {
+  grid-area: 1 / 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 390px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.35s ease;
+}
+.carousel-slide.is-active {
+  opacity: 1;
+  pointer-events: auto;
+}
+.carousel-slide img {
+  width: 100%;
+  height: 390px;
+  object-fit: cover;
+}
+.carousel-slide-content {
+  padding: 48px 46px 70px;
+  color: #fff;
+}
+.carousel-slide-content .eyebrow {
+  color: #f3d17d;
+}
+.carousel-slide-content h3 {
+  max-width: 390px;
+  margin: 12px 0 16px;
+  font:
+    600 clamp(28px, 3vw, 42px)/1.08 "Playfair Display",
+    serif;
+}
+.carousel-slide-content > p:not(.eyebrow) {
+  max-width: 420px;
+  color: #d7e5dc;
+}
+.carousel-slide-content .button {
+  margin-top: 10px;
+  background: var(--gold);
+  color: var(--ink);
+}
+.carousel-slide-content .button:hover {
+  background: #f0cf79;
+}
+.carousel-control {
+  position: absolute;
+  top: 50%;
+  z-index: 2;
+  width: 42px;
+  height: 42px;
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  background: rgba(10, 93, 63, 0.85);
+  color: #fff;
+  font:
+    32px/1 "DM Sans",
+    sans-serif;
+  cursor: pointer;
+  transform: translateY(-50%);
+}
+.carousel-control:hover {
+  background: var(--orange);
+}
+.carousel-control-prev {
+  left: 16px;
+}
+.carousel-control-next {
+  right: 16px;
+}
+.carousel-dots {
+  position: absolute;
+  right: 46px;
+  bottom: 22px;
+  z-index: 2;
+  display: flex;
+  gap: 8px;
+}
+.carousel-dot {
+  width: 10px;
+  height: 10px;
+  padding: 0;
+  border: 1px solid #fff;
+  border-radius: 50%;
+  background: transparent;
+  cursor: pointer;
+}
+.carousel-dot.is-active {
+  background: var(--gold);
+  border-color: var(--gold);
 }
 .section {
   max-width: 1200px;
@@ -526,6 +664,29 @@ footer a:not(.brand):hover {
     min-height: 260px;
     margin: 0 -20px;
   }
+  .pathway-carousel-section {
+    padding: 70px 20px 20px;
+  }
+  .carousel-heading {
+    display: block;
+  }
+  .carousel-heading h2 {
+    margin-top: 18px;
+  }
+  .carousel-slide {
+    grid-template-columns: 1fr;
+  }
+  .carousel-slide img {
+    min-height: 220px;
+    max-height: 260px;
+  }
+  .carousel-slide-content {
+    min-height: 330px;
+    padding: 32px 26px 68px;
+  }
+  .carousel-dots {
+    right: 26px;
+  }
   .assessment {
     padding: 60px 20px;
     gap: 30px;
@@ -581,9 +742,48 @@ footer a:not(.brand):hover {
   filter: saturate(0.8);
 }
 .inner-hero {
+  position: relative;
+  overflow: hidden;
   background: var(--forest);
   color: #fff;
   padding: 78px 32px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.inner-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(10, 25, 20, 0.68);
+}
+.inner-hero > div {
+  position: relative;
+  z-index: 1;
+}
+.hero-about {
+  background-image: url("assets/images/study-in-germany.jpg");
+}
+.hero-ausbildung,
+.hero-work {
+  background-image: url("assets/images/ausbildung.jpg");
+}
+.hero-contact,
+.hero-visa {
+  background-image: url("assets/images/germany-hero.jpg");
+}
+.hero-exam {
+  background-image: url("assets/images/german-exam-preparation.jpg");
+}
+.hero-pathways,
+.hero-resumption {
+  background-image: url("assets/images/germany-journey.jpg");
+}
+.hero-programs {
+  background-image: url("assets/images/german-learning.jpg");
+}
+.hero-study {
+  background-image: url("assets/images/study-in-germany.jpg");
 }
 .inner-hero > div,
 .content-page {
